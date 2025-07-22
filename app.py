@@ -49,7 +49,8 @@ section = st.sidebar.radio("Explore EDA Insights", [
     "7. Category & Product Trends",
     "8. Event Lag Analysis",
     "9. Sunburst Chart",
-    "10. References"
+    "10. Executive Summary",
+    "11. References"
 ])
 
 # 1. Event Type Distribution
@@ -140,9 +141,31 @@ elif section == "9. Sunburst Chart":
     No category hierarchy is assumed. This visual allows intuitive exploration of categorical concentration.
     """)
 
-# 10. References
-elif section == "10. References":
-    st.header("10. References (Harvard Style)")
+# 10. Executive Summary
+elif section == "10. Executive Summary":
+    st.header("10. Executive Summary")
+    st.markdown("""
+    This dashboard provides a comprehensive behavioural breakdown of the Retail Rocket ecommerce dataset, structured around the customer's interaction journey.
+
+    Beginning with an analysis of event types, it becomes evident that online shopping behaviour is skewed towards browsing, with significantly fewer add-to-cart and purchase actions. This foundational imbalance is further reflected in user engagement, where most visitors exhibit minimal interaction while a small subset engages deeply and repeatedly. Session segmentation, based on data-driven time gap analysis, enables meaningful delineation of these behaviours into discrete user journeys.
+
+    Conversion funnel insights show pronounced drop-offs at early stages, underscoring the importance of improving mid-funnel engagement. Basket size distributions further reveal typical one-product purchases with rare but significant outliers, suggesting differing intent or purchase contexts.
+
+    User segmentation patterns follow a Pareto-like shape, validating the use of clustering techniques for high-impact targeting. Category and product trends identify key conversion-driving items, while lag analysis uncovers both impulsive and deliberative customer behaviours. Finally, the sunburst chart visualises the distribution of transactions across raw category IDs without inferring any hierarchy, ensuring analytical integrity.
+
+    Together, these findings build a cohesive behavioural profile of Rocket Retail users, guiding both strategic decisions and the development of downstream machine learning models.
+    """)
+
+    # Offer PDF download
+    pdf_path = results_folder / "executive_summary.pdf"
+    if pdf_path.exists():
+        with open(pdf_path, "rb") as f:
+            st.download_button("Download Executive Summary (PDF)", f, file_name="executive_summary.pdf")
+    else:
+        st.info("PDF version of the executive summary is not available.")
+
+elif section == "11. References":
+    st.header("11. References (Harvard Style)")
     st.markdown("""
     - Moe, W. W. (2003). Buying, searching, or browsing: Differentiating between online shoppers using in-store navigational clickstream. *Journal of Consumer Psychology*, 13(1-2), 29–39.  
     - Montgomery, A. L., Li, S., Srinivasan, K., & Liechty, J. (2004). Modeling online browsing and path analysis using clickstream data. *Marketing Science*, 23(4), 579–595.  
