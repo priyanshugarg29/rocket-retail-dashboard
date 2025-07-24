@@ -165,7 +165,7 @@ elif section == "10. Executive Summary":
         st.info("PDF version of the executive summary is not available.")
 
 elif section == "11. References":
-    st.header("11. References (Harvard Style)")
+    st.header("11. References")
     st.markdown("""
     - Moe, W. W. (2003). Buying, searching, or browsing: Differentiating between online shoppers using in-store navigational clickstream. *Journal of Consumer Psychology*, 13(1-2), 29–39.  
     - Montgomery, A. L., Li, S., Srinivasan, K., & Liechty, J. (2004). Modeling online browsing and path analysis using clickstream data. *Marketing Science*, 23(4), 579–595.  
