@@ -58,10 +58,18 @@ if section == "1. Event Type Distribution":
     st.header("1. Event Type Distribution")
     load_plot("event_type_distribution.png", "Distribution of views, cart additions, and transactions.")
     st.markdown("""
-    The dataset reveals a natural skew in ecommerce interactions, where the majority of actions are passive views,
-    followed by a smaller number of add-to-cart events, and even fewer transactions. This aligns with prior findings on
-    online consumer behaviour (Moe, 2003).
-    """)
+   Out of approximately 2.75 million total events:
+
+- View events account for ~96.7% of all interactions (2.66M), indicating high browsing activity.
+
+- Add-to-cart events make up only ~2.5%, reflecting selective product engagement.
+
+- Transaction events represent just ~0.8%, consistent with typical ecommerce funnel conversion rates.
+
+This sharp drop-off from view to purchase aligns with known online consumer behaviour patterns, where most sessions are exploratory in nature and only a small fraction culminates in a purchase (Moe, 2003; Sakar et al., 2020).
+
+Such a distribution underscores the need to model non-purchasing behaviour with equal rigour—embedding sequences based solely on conversions would neglect the rich intent signals present in cart additions and repeated views. The segmentation framework must therefore incorporate complete session sequences to reveal behavioural diversity beyond monetary action.
+""")
 
 # 2. Visitor Activity
 elif section == "2. Visitor Activity":
