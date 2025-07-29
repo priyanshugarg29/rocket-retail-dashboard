@@ -95,6 +95,34 @@ elif section == "2. Visitor Activity":
 In line with behavioural economics, this skew reflects diverse browsing and buying patterns—ranging from impulse drop-ins to persistent comparers—and forms the basis for downstream segmentation via neural embeddings and clustering.""")
   
     load_plot("sessions_per_visitor_distribution.png", "Distribution of sessions per visitor.")
+
+    st.markdown(""" The summary shows that while most visitors initiate only 1–2 sessions, a small subset exhibits hyperactive engagement, with some exceeding 400 sessions. The top 10 most session-active users highlight this disparity:
+
+| Visitor ID | Session Count |
+| ---------- | ------------- |
+| 316850     | 462           |
+| 825321     | 417           |
+| 895999     | 414           |
+| ...        | ...           |
+
+This tail-heavy distribution is common in ecommerce platforms and can indicate:
+
+- Repeat research or price-tracking behaviour
+
+- Delayed decision-making across visits
+
+- Potential automation (bots or scrapers)
+
+The histogram above reaffirms the skewed nature of session frequency:
+
+- The vast majority of users have fewer than 5 sessions
+
+- A long tail extends toward hundreds of sessions, contributing to high variance
+
+This heterogeneity reinforces the need to model each session independently rather than aggregating all actions per user. This aligns with findings by Van den Berg & Abbas (2022), who note that session-level embeddings preserve short-term intent granularity and avoid the averaging-out effect seen in user-level aggregation.
+
+ """)
+    
     load_plot("events_per_session_distribution_zoomed.png", "Events per session (0–50 range).")
     st.markdown("""
     User activity is heavily imbalanced: most visitors only perform a few actions, while a small set of power users
