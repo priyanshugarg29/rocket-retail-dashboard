@@ -79,6 +79,21 @@ elif section == "2. Visitor Activity":
         load_plot("visitor_event_distribution_full.png", "Full distribution of event counts per visitor.")
     with col2:
         load_plot("visitor_event_distribution_zoomed.png", "Zoomed distribution (0–100 events).")
+
+    st.markdown("""For understanding interaction variability, we visualised the distribution of event counts per visitor—both across the full range and restricted to a 0–100 event window for clearer inspection.
+
+**Key Insights:**
+- The first plot (full range) reveals a highly right-skewed distribution, with the vast majority of users interacting only a handful of times. However, a small minority (long tail) exhibit extremely high engagement, with the most active visitor recording 7,757 interactions. This reflects Pareto-like behaviour, consistent with ecommerce platforms where a minority of users contribute disproportionately to interaction volume (Montgomery et al., 2004).
+
+- The second plot (0–100 events) highlights that over 95% of visitors engage in fewer than 100 events, with a sharp drop-off visible beyond 10–20 interactions. This suggests that while the dataset includes power users, it is dominated by low-engagement or one-time visitors, which is a common trait in publicly available ecommerce datasets (Van den Berg & Abbas, 2022; Moe, 2003).
+
+**Relevance:**
+- This behaviour supports our methodological choice to model at the session level rather than user level. Aggregating across users would conflate diverse behaviours and dilute signals from brief but meaningful interactions (Sakar et al., 2020).
+
+- It also validates the need for unsupervised segmentation, as traditional cohorting based on fixed thresholds (e.g., top 10% by engagement) would miss the behavioural heterogeneity evident in the long tail.
+
+In line with behavioural economics, this skew reflects diverse browsing and buying patterns—ranging from impulse drop-ins to persistent comparers—and forms the basis for downstream segmentation via neural embeddings and clustering.""")
+  
     load_plot("sessions_per_visitor_distribution.png", "Distribution of sessions per visitor.")
     load_plot("events_per_session_distribution_zoomed.png", "Events per session (0–50 range).")
     st.markdown("""
