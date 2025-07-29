@@ -121,8 +121,9 @@ These patterns confirm the short-attention span nature of ecommerce behaviour an
 - Lag durations are stored for use in cluster profiling—e.g., clusters with longer cart-to-transaction times may reflect more hesitant or price-sensitive users.
     """)
 
-    st.markdown("""Summary statistics of Time Gaps:
-    | Metric    | Value (Seconds) | Interpretation                                                                     |
+    st.markdown(""" **Summary statistics of Time Gaps:**
+    
+| Metric    | Value (Seconds) | Interpretation                                                                     |
 | --------- | --------------- | ---------------------------------------------------------------------------------- |
 | 25th %ile | 38              | 25% of interactions happen within 38 seconds of each other — high browsing density |
 | Median    | 136             | Half of all event pairs occur within just 2.3 minutes                              |
