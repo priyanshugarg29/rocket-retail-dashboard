@@ -299,8 +299,13 @@ elif section == "9. Sunburst Chart":
     st.header("9. Sunburst of Raw Category IDs")
     embed_html("sunburst_category_transactions.html")
     st.markdown("""
-    This sunburst presents the distribution of transactions by raw `categoryid`, rooted under a single logical parent.
-    No category hierarchy is assumed. This visual allows intuitive exploration of categorical concentration.
+    - The chart highlights a skewed category distribution, where a few high-performing categories dominate the overall transaction landscape.
+
+- Categories such as 95.0, 1051.0, and 1483.0 appear to contribute a substantial share of purchases, aligning with earlier bar plot results.
+
+- The presence of a long tail indicates niche or infrequent purchases across a wide array of categories, reflective of product diversity and micro-segmentation possibilities.
+
+- This reinforces the importance of considering both popular and specialised segments when designing customer clusters and targeting strategies.
     """)
 
 # 10. Executive Summary
