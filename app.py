@@ -228,8 +228,26 @@ elif section == "6. Basket Size":
     st.header("6. Basket Size Analysis")
     load_plot("basket_size_distribution.png", "Distribution of number of items per purchase.")
     st.markdown("""
-    The median basket size is 1, though some transactions exceed 500 items. This long-tail pattern
-    suggests opportunities for bundling, upselling, or flagging potential bot behaviour in edge cases.
+    | Metric          | Value  |
+| --------------- | ------ |
+| Count           | 11,719 |
+| Mean            | 1.91   |
+| Std. Dev.       | 8.85   |
+| Min             | 1      |
+| Max             | 559    |
+| Median          | 1      |
+| 75th Percentile | 1      |
+
+
+- The vast majority of transactions (~75%) involve a single item, indicating highly focused, low-friction purchases. This suggests the presence of intent-driven shopping behaviour, where users often come to the platform to buy a specific item rather than explore.
+
+- The long right tail, including outliers with over 500 items, highlights rare but significant bulk purchase behaviour. These could represent business buyers, accidental duplicates, or edge cases needing separate treatment in segmentation (Su & Dy, 2007).
+
+- The standard deviation of 8.85 compared to the mean (~1.91) further confirms high dispersion and skewness—making traditional assumptions of normality or mean-based profiling methods inappropriate. This supports our downstream use of non-parametric clustering methods such as HDBSCAN and GMM (Arbelaitz et al., 2013).
+
+- From a business standpoint, segmenting clusters by average basket size later can inform differentiated promotional strategies: single-item buyers may respond to cross-sell nudges, while bulk buyers might value quantity discounts or business loyalty plans.
+
+Overall, this analysis demonstrates the heterogeneity in purchasing intensity across the customer base, reinforcing the importance of modelling behavioural sequences at a session level rather than relying on aggregate transactional summaries (Van den Berg & Abbas, 2022; Grbovic & Cheng, 2018).
     """)
 
 # 7. Category & Product Trends
