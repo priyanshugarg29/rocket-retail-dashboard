@@ -283,8 +283,15 @@ elif section == "8. Event Lag Analysis":
     st.header("8. Event Lag Timings")
     load_plot("event_lag_analysis_seconds.png", "Delay between view → cart and cart → transaction (in seconds).")
     st.markdown("""
-    Most actions occur in quick succession. However, longer lags also exist — suggesting either decision latency
-    or multi-session purchasing behaviour. This insight supports email trigger timing and session window tuning.
+    - The left histogram shows that the lag from viewing a product to adding it to the cart is typically very short for most users. This suggests that initial interest leads quickly to carting behaviour—possibly influenced by intuitive UI design, promotional triggers, or returning users.
+
+- The right histogram reflects the time taken from carting to actual purchase. This duration also tends to be short for most sessions, though with slightly longer tails than view-to-cart lags. This supports previous findings (Van den Berg & Abbas, 2022) where users often revisit saved carts or proceed quickly under purchase urgency.
+
+- Both distributions are right-skewed, confirming that a majority of user-item transitions happen promptly, but a small subset exhibits high decision latency. These longer delays are behaviourally relevant for segmentation—they may signal hesitant, price-sensitive, or exploratory users.
+
+- Importantly, we avoid embedding raw lag durations into session tokens to prevent vocabulary explosion, instead preserving them for cluster profiling post-segmentation (Sakar et al., 2020).
+
+
     """)
 
 # 9. Sunburst Chart
