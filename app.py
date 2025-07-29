@@ -125,8 +125,25 @@ This heterogeneity reinforces the need to model each session independently rathe
     
     load_plot("events_per_session_distribution_zoomed.png", "Events per session (0–50 range).")
     st.markdown("""
-    User activity is heavily imbalanced: most visitors only perform a few actions, while a small set of power users
-    engage in hundreds of events. This Pareto-like pattern is well-documented in ecommerce platforms.
+    To further explore the typical behaviour, we visualised the distribution of session lengths through two histograms: a full-range plot and a zoomed-in version restricted to sessions with fewer than 50 events.
+
+**Full Distribution:**
+The distribution is heavily right-skewed, with the vast majority of sessions containing fewer than 10 events. The long tail reflects outlier sessions with unusually high interaction frequency.
+
+**Zoomed View (0–50 Events):**
+The zoomed-in view highlights that most user sessions are short, with peaks around 2–5 events. This aligns with established ecommerce research (Moe, 2003; Van den Berg & Abbas, 2022), which notes that a majority of users engage in brief, goal-oriented sessions, often terminating at the view or cart stage without purchasing.
+
+These findings indicate substantial heterogeneity in user interaction depth. From a segmentation perspective, session length can help differentiate:
+
+- Exploratory browsers (short sessions with few events)
+
+- Deliberate shoppers (medium-length sessions)
+
+- Power users or bots (very long sessions)
+
+This variation becomes particularly useful during cluster interpretation in later stages. By linking cluster membership to average session length, we can identify latent behaviour patterns such as hesitation, decisiveness, or looped product discovery, thereby supporting actionable segmentation grounded in real behavioural flow.
+
+This interpretation complements prior work that emphasises the importance of sequence structure over static features (Le & Mikolov, 2014; Grbovic & Cheng, 2018) and provides context for the choice of session-level token sequences in the embedding phase.
     """)
 
 # 3. Session Construction
