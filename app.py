@@ -121,6 +121,21 @@ These patterns confirm the short-attention span nature of ecommerce behaviour an
 - Lag durations are stored for use in cluster profiling—e.g., clusters with longer cart-to-transaction times may reflect more hesitant or price-sensitive users.
     """)
 
+    st.markdown(""" | Metric    | Value (Seconds) | Interpretation                                                                     |
+| --------- | --------------- | ---------------------------------------------------------------------------------- |
+| 25th %ile | 38              | 25% of interactions happen within 38 seconds of each other — high browsing density |
+| Median    | 136             | Half of all event pairs occur within just 2.3 minutes                              |
+| 75th %ile | 2,449           | 75% of users return within 40 minutes — within browsing intent window              |
+| 90th %ile | 263,524         | A long tail begins—10% of transitions span over 73 hours                           |
+| 95th %ile | 1,190,249       | 5% of transitions exceed 13.8 days                                                 |
+| 99th %ile | 5,160,078       | Extreme lags observed—often due to multiple visits across sessions                 |
+| Maximum   | 11,787,451      | Indicates multi-week session gaps (approx. 136 days)                               |
+
+These statistics illustrate a heavy-tailed distribution of time gaps. While the majority of user actions are clustered within a short time span, a small fraction of interactions are spaced days or even weeks apart. This supports the rationale behind adopting a 30-minute inactivity threshold for defining session boundaries, as proposed in prior literature (Montgomery et al., 2004; Moe, 2003; Google Analytics, 2023). The 75th percentile lies well within this range, ensuring that true behavioural sessions are captured without splitting meaningful flows or merging unrelated ones.
+
+Such quantile-based diagnostics are especially critical in ecommerce datasets where repeated visits, multi-device access, and asynchronous behaviour can distort naive time assumptions. Understanding the actual time gap distribution strengthens the reliability of downstream sessionisation and embedding steps.
+ """)
+
 # 4. Conversion Funnel
 elif section == "4. Conversion Funnel":
     st.header("4. Conversion Funnel Breakdown")
