@@ -255,8 +255,27 @@ elif section == "7. Category & Product Trends":
     st.header("7. Most Purchased Categories & Items")
     load_plot("top_categories_by_transactions.png", "Top 10 categories ranked by number of transactions.")
     st.markdown("""
-    Certain categories dominate conversion counts. These may represent high-intent, high-margin, or well-promoted items,
-    providing direction for inventory focus or personalised recommendations.
+    | Item ID | Transactions |
+| ------- | ------------ |
+| 461686  | 133          |
+| 119736  | 97           |
+| 213834  | 92           |
+| 312728  | 46           |
+| 7943    | 46           |
+| 445351  | 45           |
+| 48030   | 41           |
+| 248455  | 38           |
+| 420960  | 38           |
+| 17478   | 37           |
+
+
+ - Category 959.0 emerged as the most transacted category, followed closely by 1051.0 and 1483.0, each contributing over 450 purchases. These categories likely represent high-demand verticals and may correspond to frequently needed or competitively priced product segments.
+
+- The presence of multiple categories with similar transaction volumes suggests that customer demand is spread across diverse product types, not monopolised by a single vertical. This supports the use of unsupervised clustering, which does not assume categorical dominance.
+
+- At the item level, while the top item logged 133 transactions, most others in the top 10 range between 30–90, indicating modest item-level concentration. This reflects the long-tail nature of ecommerce purchasing, as echoed by Moe (2003), where niche items coexist with popular ones.
+
+- Incorporating category-level behavioural data later in cluster interpretation can reveal whether different segments lean toward specific verticals (e.g., electronics, household goods), aiding persona development and category-specific targeting.
     """)
 
 # 8. Event Lag Analysis
