@@ -206,8 +206,21 @@ elif section == "5. User Segmentation":
     st.header("5. One-Time vs Power Users")
     load_plot("visitor_interaction_distribution.png", "Log-scaled distribution of events per visitor.")
     st.markdown("""
-    Approximately 1 million users interacted only once, while a smaller group generated 100+ events.
-    Segmenting users based on this behavioural depth supports personalisation, loyalty rewards, and CRM design.
+    | Metric                    | Value     |
+| ------------------------- | --------- |
+| Total Visitors            | 1,407,580 |
+| One-Time Users            | 1,001,560 |
+| Power Users (100+ events) | 408       |
+
+- ~71% of users are one-time visitors, a classic long-tail pattern seen in digital platforms (Gagliardelli et al., 2020). This tail suggests that a significant portion of traffic may consist of casual or bounce-prone users—challenging the value of aggregate metrics alone.
+
+- Only 408 users (~0.03%) qualify as high-frequency participants, indicating extreme behavioural skew. These power users, although few, contribute disproportionately to total interactions—making them critical for personalised marketing, loyalty strategies, or retention efforts.
+
+- The log-scaled distribution reveals the presence of noise, heavy tails, and outlier behaviour that might distort segmentation if not accounted for (Montgomery et al., 2004). This justifies the need for robust, non-parametric clustering techniques like HDBSCAN in later stages.
+
+Such patterns validate our behavioural segmentation approach. Rather than treating users as uniformly distributed, we acknowledge the structural imbalance in engagement, which supports our decision to represent behaviour through session embeddings and not just user-level averages.
+
+These findings also support cluster validation, as we can later compare whether specific clusters are dominated by transient users or engaged browsers—providing insight into lifecycle stages and funnel depth variance across clusters (Van den Berg & Abbas, 2022).
     """)
 
 # 6. Basket Size
