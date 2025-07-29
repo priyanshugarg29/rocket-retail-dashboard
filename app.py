@@ -188,8 +188,17 @@ elif section == "4. Conversion Funnel":
     st.header("4. Conversion Funnel Breakdown")
     load_plot("conversion_funnel.png", "From views to transactions: Ecommerce drop-off funnel.")
     st.markdown("""
-    Only ~2.6% of views result in add-to-cart events, and ~32.4% of those lead to transactions. This highlights
-    friction in early stages and validates strategies such as retargeting, UX optimisation, and incentive design.
+    - Views dominate the event landscape with over 2.66 million interactions, reflecting the exploratory nature of ecommerce browsing.
+
+- Add-to-cart events number just ~69,000, indicating a substantial drop-off from intent to consideration.
+
+- Transactions are the rarest action (~22,457), suggesting either high abandonment rates or price-sensitive/procrastinating user behaviour.
+
+This steep funnel drop-off is consistent with prior behavioural research in online retail, where purchase journeys are highly non-linear and frequently interrupted (Gagliardelli et al., 2020; Moe, 2003). The high attrition from views to transactions also signals that platform optimisations could focus on improving mid-funnel engagement (e.g., better nudges for cart conversion, product page redesigns, or checkout simplification).
+
+Additionally, these event-type ratios will later form the basis of funnel coverage analysis per session cluster. For instance, we may discover that certain clusters exhibit view-only behaviour while others proceed to transaction more often—offering behavioural signals that surpass demographic targeting.
+
+By anchoring the segmentation in real funnel dynamics, we ensure that downstream clusters are not only data-driven but also aligned with measurable business objectives (Montgomery et al., 2004; Van den Berg & Abbas, 2022).
     """)
 
 # 5. User Segmentation
