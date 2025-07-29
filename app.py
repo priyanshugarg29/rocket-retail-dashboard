@@ -106,8 +106,19 @@ elif section == "3. Session Construction":
     st.header("3. Session Construction & Timeout Thresholds")
     load_plot("time_gap_distribution_log.png", "Log distribution of time gaps between events.")
     st.markdown("""
-    Session segmentation was based on a 30-minute inactivity threshold. This choice is supported by time-gap quantiles and
-    best practices in behavioural analytics (Montgomery et al., 2004), capturing intent while separating distinct visits.
+    The lag histograms reveal an extremely tight clustering near zero minutes for both transitions:
+
+- Over 90% of add-to-cart and transaction events occur immediately after the preceding event. This reflects intent continuity—users who add items to their cart or purchase tend to act in a single behavioural session without prolonged gaps.
+
+- A very small number of user-item paths demonstrate delayed decision-making, which may indicate deliberation, price sensitivity, or return visits—these are outliers but still relevant for nuanced cluster formation.
+
+These patterns confirm the short-attention span nature of ecommerce behaviour and align with findings by Moe (2003) and Sakar et al. (2020), who argue that most conversions follow a fast funnel collapse once purchase intent crystallises.
+
+**Relevance to Segmentation:**
+
+- This motivates our choice of session-level modelling and justifies the use of 30-minute session gaps (Montgomery et al., 2004).
+
+- Lag durations are stored for use in cluster profiling—e.g., clusters with longer cart-to-transaction times may reflect more hesitant or price-sensitive users.
     """)
 
 # 4. Conversion Funnel
